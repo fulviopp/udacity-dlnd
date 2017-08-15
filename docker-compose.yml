@@ -1,0 +1,15 @@
+version: '2'
+
+services:
+  jupyter:
+    container_name: nddl
+    image: jupyter/scipy-notebook
+    working_dir: /notebooks
+    ports:
+      - "8888:8888"
+    environment:
+     - GRANT_SUDO=yes
+    user: root
+    command: start-notebook.sh --NotebookApp.token=''
+    volumes:
+      - ./notebooks/:/notebooks
